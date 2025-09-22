@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []  # IP address for domain
 # Application definition
 # auth might be use the 3rd parties library, i.e. OAuth
 # contenttypes for Django data type differ to SQL data type
+## add pages.apps.PagesConfig eq. to (../pages/apps.py/PagesConfig)
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pages.apps.PagesConfig',
 ]
 
 MIDDLEWARE = [
