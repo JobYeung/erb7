@@ -33,19 +33,34 @@ DEBUG = True
 ALLOWED_HOSTS = []  # IP address for domain
 
 
-# Application definition
-# auth might be use the 3rd parties library, i.e. OAuth
-# contenttypes for Django data type differ to SQL data type
-## add pages.apps.PagesConfig eq. to (../pages/apps.py/PagesConfig)
-INSTALLED_APPS = [
+# Applicaiton definition in real life practice will 
+# split the Django lib and UDF applicaiton lib in seperate
+DJANGO_APP = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+APPLICAITON_APP = [
     'pages.apps.PagesConfig',
 ]
+INSTALLED_APPS = DJANGO_APP + APPLICAITON_APP
+
+# Application definition
+# auth might be use the 3rd parties library, i.e. OAuth
+# contenttypes for Django data type differ to SQL data type
+## add pages.apps.PagesConfig eq. to (../pages/apps.py/PagesConfig)
+# INSTALLED_APPS = [
+#     'django.contrib.admin',
+#     'django.contrib.auth',
+#     'django.contrib.contenttypes',
+#     'django.contrib.sessions',
+#     'django.contrib.messages',
+#     'django.contrib.staticfiles',
+#     'pages.apps.PagesConfig',
+# ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,10 +74,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
+# change: 'DIRS': [os.path.join(BASE_DIR,'templates')],
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,11 +128,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+#TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Hong_Kong'
 
 USE_I18N = True
 
 USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)
