@@ -1,85 +1,4 @@
-{% extends 'base.html'%}{% block content %}
-    {% comment %} <!-- Top Bar -->
-    <section id="top-bar" class="p-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <i class="fas fa-phone"></i> (852)-555-5555
-          </div>
-          <div class="col-md-4">
-            <i class="fas fa-envelope-open"></i> contact@healthcare.co
-          </div>
-          <div class="col-md-4">
-            <div class="social text-right">
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-facebook"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-pinterest"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> {% endcomment %}
-
-    {% comment %} <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img src="assets/img/logo.png" class="logo" alt="" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <ul class="navbar-nav">
-            <li class="nav-item active mr-3">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item mr-3">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item mr-3">
-              <a class="nav-link" href="listings.html"
-                >Inpatient medical services</a
-              >
-            </li>
-          </ul>
-
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mr-3">
-              <a class="nav-link" href="register.html">
-                <i class="fas fa-user-plus"></i> Register</a
-              >
-            </li>
-            <li class="nav-item mr-3">
-              <a class="nav-link" href="login.html">
-                <i class="fas fa-sign-in-alt"></i>
-
-                Login</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav> {% endcomment %}
-
-    <section id="showcase-inner" class="py-5 text-white">
+{% extends 'base.html'%}{% block content %}{% load static %}
       <div class="container">
         <div class="row text-center">
           <div class="col-md-12">
@@ -98,8 +17,8 @@
       <div class="container">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <a href="index.html"> <i class="fas fa-home"></i> Home</a>
+            <li class="breadcrumb-item">             
+              <a href={% url 'pages:index'%} > <i class="fas fa-home"></i> Home</a>
             </li>
             <li class="breadcrumb-item active">About</li>
           </ol>
@@ -119,7 +38,7 @@
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
               pariatur!
             </p>
-            <img src="assets/img/about.jpg" alt="" />
+            <img src={% static "img/about.jpg"%} alt="" />
             <p class="mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
@@ -130,6 +49,7 @@
           </div>
           <div class="col-md-4">
             <div class="card">
+              {% comment %} fix kyle.jpg {% endcomment %}
               <img
                 class="card-img-top"
                 src="assets/img/doctors/kyle.jpg"
@@ -157,6 +77,7 @@
         aperiam, unde aliquid at similique!
       </h4>
       <hr />
+      {% comment %} fix index.html {% endcomment %}
       <a href="listings.html" class="btn btn-secondary text-white btn-lg"
         >View Our Featured Listings</a
       >
@@ -168,6 +89,7 @@
         <h2 class="text-center pb-4">Our Team</h2>
         <div class="row text-center">
           <div class="col-md-4">
+            {% comment %} fix kyle.jpg {% endcomment %}
             <img
               src="assets/img/doctors/kyle.jpg"
               alt=""
@@ -184,6 +106,7 @@
           </div>
 
           <div class="col-md-4">
+            {% comment %} fix emma.jpg {% endcomment %}
             <img
               src="assets/img/doctors/emma.jpg"
               alt=""
@@ -198,6 +121,7 @@
           </div>
 
           <div class="col-md-4">
+            {% comment %} fix jenny.jpg {% endcomment %}
             <img
               src="assets/img/doctors/jenny.jpg"
               alt=""
@@ -213,11 +137,5 @@
         </div>
       </div>
     </section>
-
-    {% comment %} <!-- Footer -->
-    <footer id="main-footer" class="py-4 bg-primary text-white text-center">
-      Copyright &copy;
-      <span class="year"></span> BC Health Care
-    </footer> {% endcomment %}
 
 {% endblock %}
