@@ -43,9 +43,13 @@ DJANGO_APP = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
 APPLICAITON_APP = [
     'pages.apps.PagesConfig',
+    'listings.apps.ListingsConfig',
+    'doctors.apps.DoctorsConfig',
 ]
+
 INSTALLED_APPS = DJANGO_APP + APPLICAITON_APP
 
 # Application definition
