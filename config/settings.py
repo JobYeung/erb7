@@ -43,6 +43,7 @@ DJANGO_APP = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'django.contrib.humanize',
 ]
 
 APPLICAITON_APP = [
