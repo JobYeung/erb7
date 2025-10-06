@@ -22,7 +22,6 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                {% comment %} index.html 20250926 DONE {% endcomment %}
               <a href={% url 'pages:index'%} > <i class="fas fa-home"></i> Home</a>
             </li>
             <li class="breadcrumb-item active">Browse Listings</li>
@@ -40,13 +39,6 @@
           {% for listing in listings %}
           <div class="col-md-6 col-lg-4 mb-4">
             <div class="card listing-preview">
-              {% comment %}               
-                <img
-                class="card-img-top"                
-                src="assets/img/clinics/clinic-1.jpg"
-                alt=""
-                />
-             {% endcomment %}
               <img
                 class="card-img-top"                
                 src={{listing.photo_main.url}}
@@ -79,8 +71,7 @@
                   </div>
                 </div>
                 <hr />
-                <div class="row py-2 text-secondary">
-                  {% comment %} <div class="col-12"><i class="fas fa-user"></i> Ms. Ma</div> {% endcomment %}
+                <div class="row py-2 text-secondary">                  
                   <div class="col-12"><i class="fas fa-user"></i> {{listing.doctor.name}}</div>
                 </div>
                 <div class="row text-secondary pb-2">
@@ -89,8 +80,7 @@
                   </div>
                 </div>
                 <hr />
-                {% comment %} html {% endcomment %}
-                <a href="listing.html" class="btn btn-primary btn-block"
+                <a href={% url "listings:listing" listing.id %} class="btn btn-primary btn-block"
                   >More Info</a
                 >
               </div>
