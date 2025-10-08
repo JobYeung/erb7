@@ -1,11 +1,108 @@
-{% extends 'base.html'%}  {% load humanize %} {% block content %} {% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/home/antonie/erb/sample/dist/assets/css/all.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/home/antonie/erb/sample/dist/assets/css/bootstrap.css" />
+    <!-- Lightbox -->
+    <link href="/home/antonie/erb/sample/dist/assets/css/lightbox.min.css" rel="stylesheet" />
+    <!-- Custom -->
+    <link rel="stylesheet" href="/home/antonie/erb/sample/dist/assets/css/style.css" />
+
+    <title>BC Health Care</title>
+  </head>
+
+  <body>
+    <!-- Top Bar -->
+    <section id="top-bar" class="p-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <i class="fas fa-phone"></i> (852)-555-5555
+          </div>
+          <div class="col-md-4">
+            <i class="fas fa-envelope-open"></i> contact@healthcare.co
+          </div>
+          <div class="col-md-4">
+            <div class="social text-right">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-pinterest"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="/home/antonie/erb/sample/dist/assets/img/logo.png" class="logo" alt="" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <ul class="navbar-nav">
+            <li class="nav-item active mr-3">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item mr-3">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item mr-3">
+              <a class="nav-link" href="listings.html"
+                >Inpatient medical services</a
+              >
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-3">
+              <a class="nav-link" href="register.html">
+                <i class="fas fa-user-plus"></i> Register</a
+              >
+            </li>
+            <li class="nav-item mr-3">
+              <a class="nav-link" href="login.html">
+                <i class="fas fa-sign-in-alt"></i>
+
+                Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <section id="showcase-inner" class="py-5 text-white">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-12">
-            <h1 class="display-4">{{listing.title | title  }}</h1>
-            <p class="lead"><i class="fas fa-map-marker"></i>{{listing.district}}</p>
+            <h1 class="display-4">Lifeline Wellness Center</h1>
+            <p class="lead"><i class="fas fa-map-marker"></i> Yau Tsim Mong</p>
           </div>
         </div>
       </div>
@@ -17,132 +114,103 @@
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-            {% comment %} done {% endcomment %}
-              <a href={% url "pages:index"%}>Home</a>
+              <a href="index.html">Home</a>
             </li>
             <li class="breadcrumb-item">
-                {% comment %} done {% endcomment %}
-              <a href={% url "listings:listings" %}>Listings</a>
+              <a href="listings.html">Listings</a>
             </li>
-            <li class="breadcrumb-item active">{{listing.title | title }}</li>
+            <li class="breadcrumb-item active">Lifeline Wellness Center</li>
           </ol>
         </nav>
       </div>
     </section>
 
     <!-- Listing -->
-   
     <section id="listing" class="py-4">
       <div class="container">
-        {% comment %} done {% endcomment %}
-        <a href={% url "listings:listings" %} class="btn btn-light mb-4">Back To Listings</a>
+        <a href="listings.html" class="btn btn-light mb-4">Back To Listings</a>
         <div class="row">
           <div class="col-md-9">
             <!-- Home Main Image -->
-             {% comment %} done {% endcomment %}
             <img
-              src={{listing.photo_main.url}}
+              src="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-1.jpg"
               alt=""
               class="img-main img-fluid mb-3"
             />
             <!-- Thumbnails -->
             <div class="row mb-5 thumbs">
-            {% if listing.photo_1 %}
               <div class="col-md-2">
-                {% comment %} to be update {% endcomment %}
                 <a
-                  href={{listing.photo_1.url}}
+                  href="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-1.jpg"
                   data-lightbox="home-images"
                 >
-                {% comment %} to be update {% endcomment %}
                   <img
-                    src={{listing.photo_1.url}}
+                    src="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-1.jpg"
                     alt=""
                     class="img-fluid"
                   />
                 </a>
               </div>
-            {% endif %}
-            {% if listing.photo_2 %}
               <div class="col-md-2">
-                {% comment %} to be update {% endcomment %}
                 <a
-                  href={{listing.photo_2.url}}
+                  href="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-2.jpg"
                   data-lightbox="home-images"
                 >
-                {% comment %} to be update {% endcomment %}
                   <img
-                    src={{listing.photo_2.url}}
+                    src="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-2.jpg"
                     alt=""
                     class="img-fluid"
                   />
                 </a>
               </div>
-            {% endif %}
-            {% if listing.photo_3 %}
               <div class="col-md-2">
-                {% comment %} to be update {% endcomment %}
                 <a
-                  href={{listing.photo_3.url}}
+                  href="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-3.jpg"
                   data-lightbox="home-images"
                 >
-                {% comment %} to be update {% endcomment %}
                   <img
-                    src={{listing.photo_3.url}}
+                    src="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-3.jpg"
                     alt=""
                     class="img-fluid"
                   />
                 </a>
               </div>
-            {% endif %}
-            {% if listing.photo_4 %}
               <div class="col-md-2">
-                {% comment %} to be update {% endcomment %}
                 <a
-                  href={{listing.photo_4.url}}
+                  href="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-4.jpg"
                   data-lightbox="home-images"
                 >
-                {% comment %} to be update {% endcomment %}
                   <img
-                    src={{listing.photo_4.url}}
+                    src="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-4.jpg"
                     alt=""
                     class="img-fluid"
                   />
                 </a>
               </div>
-            {% endif %}
-            {% if listing.photo_5 %}
               <div class="col-md-2">
-                {% comment %} to be update {% endcomment %}
                 <a
-                  href={{listing.photo_5.url}}
+                  href="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-5.jpg"
                   data-lightbox="home-images"
                 >
-                {% comment %} to be update {% endcomment %}
                   <img
-                    src={{listing.photo_5.url}}
+                    src="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-5.jpg"
                     alt=""
                     class="img-fluid"
                   />
                 </a>
               </div>
-            {% endif %}
-            {% if listing.photo_6 %}
               <div class="col-md-2">
-                {% comment %} to be update {% endcomment %}
                 <a
-                  href={{listing.photo_6.url}}
+                  href="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-6.jpg"
                   data-lightbox="home-images"
                 >
-                {% comment %} to be update {% endcomment %}
                   <img
-                    src={{listing.photo_6.url}}
+                    src="/home/antonie/erb/sample/dist/assets/img/clinics/clinic-inside-6.jpg"
                     alt=""
                     class="img-fluid"
                   />
                 </a>
               </div>
-            {% endif %}
             </div>
             <!-- Fields -->
             <div class="row mb-5 fields">
@@ -202,15 +270,14 @@
           </div>
           <div class="col-md-3">
             <div class="card mb-3">
-                {% comment %} src="assets/img/doctors/kyle.jpg" done {% endcomment %}
               <img
-                class="card-img-top"  
-                src={{listing.doctor.photo.url}}                
+                class="card-img-top"
+                src="/home/antonie/erb/sample/dist/assets/img/doctors/kyle.jpg"
                 alt="Seller of the month"
               />
               <div class="card-body">
-                <h5 class="card-title">Medical Practitioner</h5>                
-                <h6 class="text-secondary"> {{listing.doctor.name}}</h6>
+                <h5 class="card-title">Medical Practitioner</h5>
+                <h6 class="text-secondary">Kyle Chan</h6>
               </div>
             </div>
             <button
@@ -220,7 +287,6 @@
             >
               Make An Inquiry
             </button>
-
           </div>
         </div>
       </div>
@@ -283,5 +349,15 @@
       </div>
     </div>
 
+    <!-- Footer -->
+    <footer id="main-footer" class="py-4 bg-primary text-white text-center">
+      Copyright &copy;
+      <span class="year"></span> BC Health Care
+    </footer>
 
-{% endblock %}
+    <script src="/home/antonie/erb/sample/dist/assets/js/jquery-3.3.1.min.js "></script>
+    <script src="/home/antonie/erb/sample/dist/assets/js/bootstrap.bundle.min.js "></script>
+    <script src="/home/antonie/erb/sample/dist/assets/js/lightbox.min.js"></script>
+    <script src="/home/antonie/erb/sample/dist/assets/js/main.js "></script>
+  </body>
+</html>

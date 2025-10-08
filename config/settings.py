@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SITE_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []  # IP address for domain
+ALLOWED_HOSTS = ['*']  # IP address for domain
 
 
 # Applicaiton definition in real life practice will 
