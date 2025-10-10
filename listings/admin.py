@@ -7,7 +7,7 @@ from taggit.forms import TagWidget
 from django.contrib.admin.widgets import FilteredSelectMultiple
 
 class ListingAdminForm(forms.ModelForm):
-    subjects = forms.ModelMultipleChoiceField(
+    professionals = forms.ModelMultipleChoiceField(
         queryset=Subject.objects.all(),
         widget=FilteredSelectMultiple(verbose_name='Professionals', is_stacked=False,attrs={'row':'5'}), required=False, label='Select Professionals'
     )
@@ -25,11 +25,11 @@ class ListingAdminForm(forms.ModelForm):
 
 class ListingAdmin(admin.ModelAdmin):
     form = ListingAdminForm
-    list_display = 'id','title','district','is_published','rooms','doctor','tag_list'
+    list_display = 'id','title','district','is_published','rooms','doctor','tag_list','display_professionals'
     list_display_links = 'id','title'
     list_filter = ('doctor', 'services')
     list_editable = ('is_published','rooms')
-    search_fields = ('title','district','doctor__name','services__name')
+    search_fields = ('title','district','doctor__name','services__name','professionals__name')
     list_per_page = 25
     ordering = ['-id']
     # ! prepopulated_fields = {'title':('title',)}
@@ -41,11 +41,11 @@ class ListingAdmin(admin.ModelAdmin):
     show_facets = admin.ShowFacets.ALWAYS
 
     def get_queryset(self, request):
-        return super().get_queryset(request).prefetch_related('services')
+        return super().get_queryset(request).prefetch_related('services','professionals')
     
-    def display_subjects(self, obj):
-        return ", ".join([subject.name for subject in obj.subjects.all()])
-    display_subjects.short_description = 'Professionals'
+    def display_professionals(self, obj):
+        return ", ".join([subject.name for subject in obj.professionals.all()]) or 'None'
+    display_professionals.short_description = 'Professionals'
 
 class SubjectAdmin(admin.ModelAdmin):
     list_display = 'name',

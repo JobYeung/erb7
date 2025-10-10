@@ -1,4 +1,9 @@
-{% extends "admin/base.html" %} {% load static %} {% block branding %}
+{% extends "admin/base.html" %} 
+{% load static %} 
+{% comment %} {% block title %}{{ title }} {% endblock %} {% endcomment %}
+
+{% block branding %}
+
 <h1 class="head">
   <img
     src="{% static 'img/logo.png' %}"
@@ -9,6 +14,7 @@
   />
   <span class="brand">Medical Center Admin</span>
 </h1>
+
 {% endblock branding %}
 
 {% block extrastyle %}
