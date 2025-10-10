@@ -29,9 +29,11 @@ input[type="submit"],
 input[type="button"], 
 .submit-row input,
 a.button {
-    background: #2d4363;
+    background: #b4ab2e;
     color: #fff;
 }
+/* background: #2d4363; */
+
 .brands {
     margin-left: 15px;
 }
