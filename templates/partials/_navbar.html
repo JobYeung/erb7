@@ -2,7 +2,6 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
       <div class="container">
-        {% comment %} fix index.html {% endcomment %}
         <a class="navbar-brand" href={%url "pages:index" %} >
           <img src={% static "img/logo.png"%} class="logo" alt="" />
         </a>
@@ -16,33 +15,25 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="navbar-nav">
-            {% comment %} update on 20250926 {% endcomment %}
-            {% comment %} <li class="nav-item active mr-3"> {% endcomment %}
             <li {% if '/' == request.path %}
               class="nav-item active mr-3"
             {% else%}
               class="nav-item mr-3"
             {% endif %}
             >
-                {% comment %} update on 20250925 {% endcomment %}
               <a class="nav-link" href={%url "pages:index" %} >Home</a>
             </li>
-            {% comment %} update on 20250926, request.path will return a list from pages/urls.py
-            {% endcomment %}
-            {% comment %} <li class="nav-item mr-3"> {% endcomment %}
             <li {% if 'about' in request.path %}
               class="nav-item active mr-3"
             {% else%}
               class="nav-item mr-3"
             {% endif %}
             >
-                {% comment %} update on 20250925 {% endcomment %}
               <a class="nav-link" href={%url "pages:about"%} >About</a>
             </li>
             
-            
-            <li class="nav-item mr-3">
-                {% comment %} fix listings.html {% endcomment %}
+            <li {% if 'listings' in request.path %} class="nav-item active mr-3" {% else%} class="nav-item mr-3" {% endif %} >
+            {% comment %} <li class="nav-item mr-3"> {% endcomment %}
               <a class="nav-link" href={% url "listings:listings" %}
                 >Inpatient medical services</a
               >
@@ -52,17 +43,16 @@
           </ul>
 
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item mr-3">
+            <li {% if 'register' in request.path %} class="nav-item active mr-3" {% else%} class="nav-item mr-3" {% endif %} >
                 {% comment %} fix register.html {% endcomment %}
-              <a class="nav-link" href="register.html">
+              <a class="nav-link" href={% url 'accounts:register' %} >
                 <i class="fas fa-user-plus"></i> Register</a
               >
             </li>
-            <li class="nav-item mr-3">
+            <li {% if 'login' in request.path %} class="nav-item active mr-3" {% else%} class="nav-item mr-3" {% endif %} >
                 {% comment %} fix login.html {% endcomment %}
-              <a class="nav-link" href="login.html">
+              <a class="nav-link" href={% url "accounts:login" %} >
                 <i class="fas fa-sign-in-alt"></i>
-
                 Login</a
               >
             </li>
